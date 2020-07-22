@@ -12,7 +12,18 @@
 	}
 	
 	$rootScope.$on("updateNote", function(event, data) {
-		console.log("GAY");
+		//c.server.update();
+		console.log("data received from notes body");
+		console.log(data);
+		console.log($rootScope.noteID);
+		
+		var found = c.data.notes.findIndex(function(el) {
+			return el.sys_id == data.noteID;
+		});
+		console.log(found);
+		
+		c.data.notes[found].note = data.note;
+		c.data.notes[found].title = data.title;
 	});
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -52,14 +63,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-07-01 13:19:18</sys_created_on>
         <sys_id>db1ae3e41b311010d959877ddc4bcbad</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>43</sys_mod_count>
         <sys_name>Notes List</sys_name>
         <sys_package display_value="CreateNotes" source="x_snc_createnotes">df5fd9a5090232007f44e1046c8ff69f</sys_package>
         <sys_policy/>
         <sys_scope display_value="CreateNotes">df5fd9a5090232007f44e1046c8ff69f</sys_scope>
         <sys_update_name>sp_widget_db1ae3e41b311010d959877ddc4bcbad</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-07-03 13:55:54</sys_updated_on>
+        <sys_updated_on>2020-07-03 14:36:56</sys_updated_on>
         <template><![CDATA[<div class="panel panel-default">
   
   <div class="panel-heading clearfix">
